@@ -2,9 +2,10 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        cq:lastModified="{Date}2019-09-15T21:26:36.101+05:30"
+        cq:lastModified="{Date}2019-09-16T17:51:05.921+05:30"
         cq:lastModifiedBy="admin"
+        cq:templateType="/conf/my-aem-project/settings/wcm/template-types/empty-page"
         jcr:primaryType="cq:PageContent"
-        jcr:title="my-aem-project Page"
+        jcr:title="Content Page"
         status="enabled"/>
 </jcr:root>

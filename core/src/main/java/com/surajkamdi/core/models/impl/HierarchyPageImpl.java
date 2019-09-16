@@ -1,7 +1,7 @@
 package com.surajkamdi.core.models.impl;
 
-import com.drew.lang.annotations.NotNull;
-import com.drew.lang.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.surajkamdi.core.models.HierarchyPage;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -124,7 +124,7 @@ public class HierarchyPageImpl implements HierarchyPage {
         return HierarchyTypes.PAGE;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public Map<String, ? extends HierarchyPage> getExportedChildren() {
         if (childPages == null) {
@@ -134,7 +134,7 @@ public class HierarchyPageImpl implements HierarchyPage {
         return childPages;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public Map<String, ? extends ComponentExporter> getExportedItems() {
         if (childModels == null) {
@@ -144,7 +144,7 @@ public class HierarchyPageImpl implements HierarchyPage {
         return childModels;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public String[] getExportedItemsOrder() {
         Map<String, ? extends ComponentExporter> models = getExportedItems();
@@ -156,7 +156,7 @@ public class HierarchyPageImpl implements HierarchyPage {
         return models.keySet().toArray(ArrayUtils.EMPTY_STRING_ARRAY);
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public String getExportedType() throws IllegalStateException {
         Resource contentResource = currentPage.getContentResource();
@@ -168,8 +168,8 @@ public class HierarchyPageImpl implements HierarchyPage {
         return contentResource.getResourceType();
     }
 
-    @NotNull
-    private SlingHttpServletRequest getHierarchyServletRequest(@NotNull SlingHttpServletRequest request, @NotNull Page hierarchyPage) {
+    @Nonnull
+    private SlingHttpServletRequest getHierarchyServletRequest(@Nonnull SlingHttpServletRequest request, @Nonnull Page hierarchyPage) {
         SlingHttpServletRequest wrapper = new SlingHttpServletRequestWrapper(request);
 
         ComponentContext componentContext = (ComponentContext) request.getAttribute(COMPONENT_CONTEXT_ATTR);
@@ -188,9 +188,9 @@ public class HierarchyPageImpl implements HierarchyPage {
      * @param modelClass  The Sling Model class to be adapted to.
      * @return Returns a map (resource name => Sling Model class) of the given resource children's Sling Models that can be adapted to {@link T}.
      */
-    @NotNull
-    private <T> Map<String, T> getItemModels(@NotNull SlingHttpServletRequest slingRequest,
-                                             @NotNull Class<T> modelClass) {
+    @Nonnull
+    private <T> Map<String, T> getItemModels(@Nonnull SlingHttpServletRequest slingRequest,
+                                             @Nonnull Class<T> modelClass) {
         Map<String, T> itemWrappers = new LinkedHashMap<>();
 
         Iterable<Resource> iterable = slingModelFilter.filterChildResources(request.getResource().getChildren());
@@ -215,7 +215,7 @@ public class HierarchyPageImpl implements HierarchyPage {
      * @param depth                 - Depth of the traversal
      * @return
      */
-    @NotNull
+    @Nonnull
     private List<Page> getChildPageRecursive(Page page, SlingHttpServletRequest slingRequest, List<Pattern> structurePatterns, int depth) {
         // By default the value is 0 meaning we do not expose child pages
         // If the value is set as a positive number it is going to be exposed until the counter is brought down to 0
@@ -266,7 +266,7 @@ public class HierarchyPageImpl implements HierarchyPage {
      * @param slingRequest  The current servlet request
      * @param childPages    List of child pages
      */
-    private void addAsynchronousChildPage(@NotNull SlingHttpServletRequest slingRequest, @NotNull List<Page> childPages) {
+    private void addAsynchronousChildPage(@Nonnull SlingHttpServletRequest slingRequest, @Nonnull List<Page> childPages) {
         // Child pages are only added to the root page
         if (Boolean.TRUE.equals(slingRequest.getAttribute(IS_CHILD_PAGE_ATTR))) {
             return;
@@ -292,9 +292,9 @@ public class HierarchyPageImpl implements HierarchyPage {
         childPages.add(entryPointPage);
     }
 
-    @NotNull
-    private <T> Map<String, T> getChildPageModels(@NotNull SlingHttpServletRequest slingRequest,
-                                                  @NotNull Class<T> modelClass) {
+    @Nonnull
+    private <T> Map<String, T> getChildPageModels(@Nonnull SlingHttpServletRequest slingRequest,
+                                                  @Nonnull Class<T> modelClass) {
 
         int pageTreeTraversalDepth = getPageTreeTraversalDepth();
 
@@ -340,8 +340,8 @@ public class HierarchyPageImpl implements HierarchyPage {
      * @param slingRequest  - Request
      * @return
      */
-    @NotNull
-    private List<Pattern> getStructurePatterns(@NotNull SlingHttpServletRequest slingRequest) {
+    @Nonnull
+    private List<Pattern> getStructurePatterns(@Nonnull SlingHttpServletRequest slingRequest) {
         RequestParameter pageFilterParameter = slingRequest.getRequestParameter(STRUCTURE_PATTERNS_PN.toLowerCase());
 
         String rawPageFilters = null;
@@ -387,7 +387,7 @@ public class HierarchyPageImpl implements HierarchyPage {
         return pageTreeTraversalDepth;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public String getExportedPath() {
         return currentPage.getPath();
@@ -402,7 +402,7 @@ public class HierarchyPageImpl implements HierarchyPage {
      * @param page
      * @return
      */
-    private String getURL(@NotNull SlingHttpServletRequest request, @NotNull Page page) {
+    private String getURL(@Nonnull SlingHttpServletRequest request, @Nonnull Page page) {
         String vanityURL = page.getVanityUrl();
         return StringUtils.isEmpty(vanityURL) ? request.getContextPath() + page.getPath() + ".html" : request.getContextPath() + vanityURL;
     }
@@ -414,7 +414,7 @@ public class HierarchyPageImpl implements HierarchyPage {
      * @param page
      * @return
      */
-    private String getModelUrl(@NotNull SlingHttpServletRequest request, @NotNull Page page) {
+    private String getModelUrl(@Nonnull SlingHttpServletRequest request, @Nonnull Page page) {
         String url = getURL(request, page);
 
         if (StringUtils.isBlank(url)) {

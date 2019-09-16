@@ -2,8 +2,8 @@ package com.surajkamdi.core.models.impl;
 
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
-import com.drew.lang.annotations.NotNull;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import javax.annotation.Nonnull;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -72,7 +72,7 @@ public class BaseComponentExporter implements ComponentExporter {
     @Required
     private ResourceResolver resourceResolver;
 
-    @NotNull
+    @Nonnull
     @Override
     public String getExportedType() {
         // This method is required by ComponentExporter and its value populates the `:type` key in the JSON object.

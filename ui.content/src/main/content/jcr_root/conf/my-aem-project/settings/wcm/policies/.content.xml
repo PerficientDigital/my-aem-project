@@ -10,7 +10,7 @@
                         jcr:primaryType="nt:unstructured"
                         mergeList="{Boolean}true"/>
                     <default
-                        jcr:lastModified="{Date}2019-09-15T21:23:52.933+05:30"
+                        jcr:lastModified="{Date}2019-09-16T17:50:33.239+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="My AEM Project Template Root Policy"
