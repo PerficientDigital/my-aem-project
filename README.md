@@ -14,6 +14,7 @@ The main parts of the template are:
 * core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
 * ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates, runmode specific configs as well as Hobbes-tests
 * ui.content: contains sample content using the components from the ui.apps
+* my-aem-react-app: Contains sample react app
 
 ### How to build
 
@@ -29,6 +30,9 @@ Or to deploy only the bundle to the author, run
 
     `mvn clean install -PautoInstallBundle -Padobe-public`
 
+To build react modules, then use
+
+    `npm run build`
 
 ### Maven settings
 
