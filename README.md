@@ -1,5 +1,9 @@
 ##  Creating Your First Custom AEM Component Using React
 
+Visit My Profile: https://blogs.perficientdigital.com/author/skamdi/
+
+Blog link: https://blogs.perficientdigital.com/2019/09/17/creating-your-first-custom-aem-component-using-react-part-1/
+
 ### Example:
 ![Custom React Component in AEM by Suraj Kamdi](https://drive.google.com/uc?export=view&id=1Kd_UGKEbEBzHDyJkJj1TqRVM6-Tt_Hs6)
 
