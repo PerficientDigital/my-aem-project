@@ -41,6 +41,8 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
+# Visual Studio Code
+.vscode
 
 ### Java ###
 *.class
@@ -74,3 +76,6 @@ buildNumber.properties
 ### IntelliJ ###
 .idea/
 *.iml
+
+### MacOS ###
+.DS_Store
