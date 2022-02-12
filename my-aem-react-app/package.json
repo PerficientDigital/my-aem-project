@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "aem-clientlib-generator": "^1.4.4",
-    "ajv": "^6.10.0",
+    "ajv": "^6.12.3",
     "clone": "^2.1.2",
     "typescript": "^3.4.2"
   }
